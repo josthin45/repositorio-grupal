@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+</head>
+<body>
+    <main>
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form action="#" method="post" aria-label="Formulario de contacto">
+
+            <fieldset>
+                <p>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                </p>
+
+                <p>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email"
+                required placeholder="correo@ejemplo.com">
+                </p>
+
+                <p>
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono"
+                pattern="[0-9]{10}"
+                title="Ingresa 10 dígitos sin espacios"
+                placeholder="0999999999">
+                </p>
+        
+                </fieldset>
+
+                <fieldset>
+                    <legend>Tu mensaje</legend>
+                <p>
+                    <label for="asunto">Asunto:</label>
+                    <select id="asunto" name="asunto" required>
+                        <option value="">-- Selecciona una opción --</option>
+                        <option value="Problema con plataforma">Problema con plataforma</option>
+                        <option value="Fallo con credenciales">Fallo con credenciales</option>
+                        <option value="Cambio de fecha de entrega">Cambio de fecha de entrega</option>
+                        <option value="Hablar con el docente">Hablar con el docente</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje"
+                    rows="5" cols="40"
+                    required minlength="30"
+                    placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
+                </p>
+                </fieldset>
+                </section>
+
+            <!-- Opción B: Slider de prioridad -->
+            <p>
+            <label for="prioridad">Prioridad:</label>
+            <input type="range" id="prioridad" name="prioridad"
+            min="1" max="5" value="3">
+            <span>(Establezca la prioridad de 1 a 5)</span>
+            </p>
+            
+            <!-- Opción C: Fecha preferida de contacto -->
+            <p>
+            <label for="fecha">¿Cuándo prefieres que te contactemos?</label>
+            <input type="date" id="fecha" name="fecha">
+            </p>
+
+            <p>
+            <button type="submit">Enviar mensaje</button>
+            <button type="reset">Limpiar</button>
+            </p>
+
+        </form>
+    </main>
+</body>
+</html>
