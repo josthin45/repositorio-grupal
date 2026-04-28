@@ -1,13 +1,9 @@
 
-/* ============ RESET UNIVERSAL ============ */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
 
 :root {
-    --primary-color: #0d0b0d;
+    --primary-color: #c73c3c;
     --secondary-color: #555;
-    --accent-color: #c965ff;
+    --accent-color: #007BFF;
     --background-color: #f4f4f4;
     --text-color: #333;
     --color-text-light: #777;
@@ -49,37 +45,3 @@ img {
     height: auto;
     display: block;
 }
-
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--primary-color);
-    padding: var(--spacing-md);
-}
-
-.nav-links {
-    display: flex;
-    gap: 25px; 
-}
-
-.nav-logo {
-    color: var(--background-color);
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.nav-logo:hover {
-    color: var(--accent-color);
-}
-
-.nav-links a {
-    color: var(--background-color);
-    font-size: 1rem;
-    transition: color 0.8s ease;
-}
-
-.nav-links a:hover {
-    color: var(--accent-color);
-}
-
