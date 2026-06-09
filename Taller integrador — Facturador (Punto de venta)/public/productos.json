@@ -1,0 +1,14 @@
+[
+  { "id": 101, "nombre": "Arroz 2 kg",           "precio": 2.50,  "categoria": "Alimentos" },
+  { "id": 102, "nombre": "Aceite girasol 1 L",   "precio": 3.20,  "categoria": "Alimentos" },
+  { "id": 103, "nombre": "Atún en lata 170 g",   "precio": 1.40,  "categoria": "Alimentos" },
+  { "id": 104, "nombre": "Detergente 1 kg",      "precio": 4.75,  "categoria": "Limpieza" },
+  { "id": 105, "nombre": "Jabón de tocador",     "precio": 0.90,  "categoria": "Limpieza" },
+  { "id": 106, "nombre": "Cuaderno universitario","precio": 1.75,  "categoria": "Papelería" },
+  { "id": 107, "nombre": "Esferos x3",           "precio": 1.10,  "categoria": "Papelería" },
+  { "id": 108, "nombre": "Audífonos básicos",    "precio": 8.99,  "categoria": "Electrónica" },
+  { "id": 109, "nombre": "Cargador USB-C",       "precio": 6.50,  "categoria": "Electrónica" },
+  { "id": 110, "nombre": "Foco LED 9W",          "precio": 2.25,  "categoria": "Hogar" },
+  { "id": 111, "nombre": "Toalla de manos",      "precio": 3.80,  "categoria": "Hogar" },
+  { "id": 112, "nombre": "Café molido 250 g",    "precio": 4.20,  "categoria": "Alimentos" }
+]

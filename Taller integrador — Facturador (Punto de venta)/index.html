@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facturador — Punto de venta</title>
+  <style>
+    :root {
+      --navy: #1E2761;
+      --teal: #028090;
+      --accent: #F96167;
+      --gris: #F5F5F5;
+      --borde: #d9dce5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      margin: 0; background: #eef0f5; color: #1b1d29;
+    }
+    header.app {
+      background: var(--navy); color: #fff; padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    header.app h1 { font-size: 20px; margin: 0; }
+    header.app .iva { background: var(--teal); padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+    main { max-width: 1100px; margin: 20px auto; padding: 0 16px;
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 18px; }
+    .panel { background: #fff; border: 1px solid var(--borde); border-radius: 10px; padding: 16px; }
+    .panel h2 { margin: 0 0 12px; font-size: 16px; color: var(--navy); }
+    input[type="search"] {
+      width: 100%; padding: 9px 12px; border: 1px solid var(--borde);
+      border-radius: 8px; font-size: 14px; margin-bottom: 10px;
+    }
+    #mensaje { display:none; background:#fff3cd; border:1px solid #ffe08a;
+      padding:8px 12px; border-radius:8px; margin:0 auto 12px; max-width:1100px; }
+    ul#lista-clientes { list-style: none; margin: 0; padding: 0; max-height: 180px; overflow: auto; }
+    .cliente { padding: 8px 10px; border: 1px solid var(--borde); border-radius: 8px;
+      margin-bottom: 6px; cursor: pointer; display: flex; justify-content: space-between; }
+    .cliente:hover { background: var(--gris); }
+    .cliente .ruc { color: #6b7080; font-size: 12px; }
+    #cliente-actual { font-size: 14px; color: var(--teal); font-weight: 600; margin-top: 8px; }
+    #catalogo { display: grid; gap: 8px; max-height: 320px; overflow: auto; }
+    .producto { display: flex; align-items: center; justify-content: space-between;
+      border: 1px solid var(--borde); border-radius: 8px; padding: 8px 10px; }
+    .producto .nombre { font-weight: 600; }
+    .producto .categoria { color: #6b7080; font-size: 12px; margin-left: 8px; }
+    .producto .precio { color: var(--navy); font-weight: 700; }
+    button { cursor: pointer; border: none; border-radius: 7px; font-size: 13px; padding: 6px 10px; }
+    .btn-agregar { background: var(--teal); color: #fff; }
+    #catalogo-toolbar { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+    .btn-ordenar-ascendente, .btn-ordenar-descendente { background: var(--navy); color: #fff; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 8px 6px; border-bottom: 1px solid var(--borde); text-align: left; }
+    th { color: var(--navy); font-size: 12px; text-transform: uppercase; }
+    td.cant { white-space: nowrap; }
+    .btn-mas, .btn-menos { background: var(--gris); width: 26px; }
+    .cantidad { display: inline-block; min-width: 24px; text-align: center; }
+    .btn-quitar { background: var(--accent); color: #fff; }
+    .vacio { color: #6b7080; text-align: center; font-style: italic; }
+    .totales { margin-top: 14px; border-top: 2px solid var(--navy); padding-top: 10px; }
+    .totales div { display: flex; justify-content: space-between; padding: 3px 0; }
+    .totales .total { font-size: 18px; font-weight: 800; color: var(--navy); }
+  </style>
+</head>
+<body>
+  <header class="app">
+    <h1>🧾 Facturador — Punto de venta</h1>
+    <span class="iva">IVA 15%</span>
+  </header>
+
+  <div id="mensaje"></div>
+
+  <main>
+    <!-- IZQUIERDA: cliente + catálogo -->
+    <section>
+      <div class="panel">
+        <h2>Cliente</h2>
+        <form id="form-buscar">
+          <input id="buscar-cliente" type="search" placeholder="Buscar cliente por nombre o RUC…" />
+        </form>
+        <ul id="lista-clientes"></ul>
+        <div id="cliente-actual">Ningún cliente seleccionado</div>
+      </div>
+
+      <div class="panel" style="margin-top:18px;">
+        <h2>Catálogo</h2>
+        <input id="buscar-producto" type="search" placeholder="Buscar producto…" />
+        <div id="catalogo-toolbar">
+          <button type="button" class="btn-ordenar-ascendente">Precio ↑ (menor a mayor)</button>
+          <button type="button" class="btn-ordenar-descendente">Precio ↓ (mayor a menor)</button>
+        </div>
+        <div id="catalogo"></div>
+      </div>
+    </section>
+
+    <!-- DERECHA: factura -->
+    <section class="panel">
+      <h2>Factura</h2>
+      <table>
+        <thead>
+          <tr><th>Producto</th><th>P. Unit</th><th>Cant.</th><th>Subtotal</th><th></th></tr>
+        </thead>
+        <tbody id="lineas-factura"></tbody>
+      </table>
+      <div class="totales">
+        <div><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+        <div><span>IVA (15%)</span><span id="iva">$0.00</span></div>
+        <div class="total"><span>TOTAL</span><span id="total">$0.00</span></div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

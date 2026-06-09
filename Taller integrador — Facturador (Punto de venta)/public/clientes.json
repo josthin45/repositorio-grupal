@@ -1,0 +1,10 @@
+[
+  { "id": 1, "nombre": "María Vélez Loor",        "ruc": "1312345678001", "email": "maria.velez@correo.com" },
+  { "id": 2, "nombre": "Comercial Don Pepe S.A.", "ruc": "1390011223001", "email": "ventas@donpepe.ec" },
+  { "id": 3, "nombre": "Carlos Zambrano Mero",    "ruc": "1311223344001", "email": "czambrano@correo.com" },
+  { "id": 4, "nombre": "Tienda La Manabita",      "ruc": "1391122334001", "email": "lamanabita@correo.com" },
+  { "id": 5, "nombre": "Jessica Cedeño Pin",      "ruc": "1305566778001", "email": "jcedeno@correo.com" },
+  { "id": 6, "nombre": "Distribuidora El Faro",   "ruc": "1392233445001", "email": "compras@elfaro.ec" },
+  { "id": 7, "nombre": "Luis Macías Andrade",     "ruc": "1307788990001", "email": "lmacias@correo.com" },
+  { "id": 8, "nombre": "Panadería San José",      "ruc": "1393344556001", "email": "sanjose@correo.com" }
+]
