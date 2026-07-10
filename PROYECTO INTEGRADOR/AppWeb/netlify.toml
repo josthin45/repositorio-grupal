@@ -1,0 +1,23 @@
+[build]
+  command = "npm run build:all"
+  publish = "container/dist"
+
+[[redirects]]
+  from = "/angular/*"
+  to = "/angular/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/react/*"
+  to = "/react/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/vue/*"
+  to = "/vue/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

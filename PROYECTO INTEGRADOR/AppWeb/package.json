@@ -1,0 +1,18 @@
+{
+  "name": "questiaspace-root",
+  "private": true,
+  "version": "1.0.0",
+  "description": "QuestiaSpace - Educational Platform",
+  "scripts": {
+    "install:all": "npm install && cd container && npm install && cd ../angular-quiz && npm install && cd ../react-matching && npm install && cd ../vue-cards && npm install",
+    "dev:container": "cd container && npm run dev",
+    "dev:angular": "cd angular-quiz && npm run start",
+    "dev:react": "cd react-matching && npm run dev",
+    "dev:vue": "cd vue-cards && npm run dev",
+    "dev:all": "npx concurrently \"npm run dev:container\" \"npm run dev:angular\" \"npm run dev:react\" \"npm run dev:vue\"",
+    "build:all": "node build.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
